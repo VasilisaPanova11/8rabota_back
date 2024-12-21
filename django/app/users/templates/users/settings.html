@@ -1,0 +1,29 @@
+{% extends "users/form.html" %}
+{% load static %}
+
+{% block extrastyles %}
+<link rel="stylesheet" href="{% static "css/user-data.css" %}">
+{% endblock extrastyles %}
+
+
+{% block extradata %}
+<h2>Сессия</h2>
+<ul class='user-data'>
+    <li>Имя пользователя: <b> {{ user.username }} </b></li>
+    <li>Тема: <b> {{ userdata.theme }} </b></li>
+    <li>Язык: <b> {{ userdata.lang }} </b></li>
+</ul>
+<h2>Куки</h2>
+{% if cookiedata.username != None %}
+<ul class='user-data'>
+    <li>Имя пользователя: <b> {{ cookiedata.username }} </b></li>
+    <li>Тема: <b> {{ cookiedata.theme }} </b></li>
+    <li>Язык: <b> {{ cookiedata.lang }} </b></li>
+</ul>
+{% else %}
+<ul class='user-data'>
+    <li><b> Нет кук </b></li>
+</ul>
+{% endif %}
+
+{% endblock extradata %}

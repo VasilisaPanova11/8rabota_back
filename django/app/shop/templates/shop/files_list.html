@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extrastyles %}
+<link rel="stylesheet" href="{% static "css/tables.css" %}">
+{% endblock extrastyles %}
+
+{% block content %}
+{% if files %}
+<table class='data-table'>
+    <tr>
+        <th>Файлы</th>
+    </tr>
+    {% for file in files %}
+    <tr>
+        <td> <a href="{{ file.get_absolute_url }}">{{ file.name }}</a> </td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p> Не загружено ни одного файла </p>
+{% endif %}
+{% endblock content %}

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extrastyles %}
+<link rel="stylesheet" href="{% static "css/tables.css" %}">
+{% endblock extrastyles %}
+
+{% block content %}
+<button onclick="window.location.replace('{% url "shop:charts" %}')">К графикам</button>
+<table class='data-table'>
+    <tr>
+        <th>ID</th>
+        <th>Материал</th>
+        <th>Количество</th>
+        <th>Имя покупателя</th>
+        <th>Фамилия покупателя</th>
+        <th>Город</th>
+        <th>Страна</th>
+    </tr>
+    {% for sell in sells %}
+    <tr>
+        <td> {{ sell.pk }} </td>
+        <td> {{ sell.mat.title }} </td>
+        <td> {{ sell.count }} </td>
+        <td> {{ sell.name }} </td>
+        <td> {{ sell.surname }} </td>
+        <td> {{ sell.city }} </td>
+        <td> {{ sell.country }} </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock content %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extrastyles %}
+<link rel="stylesheet" href="{% static "css/tables.css" %}">
+{% endblock extrastyles %}
+{% block content %}
+
+<table class="data-table">
+    <tr>
+        <th>ID</th>
+        <th>Имя пользователя</th>
+        <th>Хэш пароля</th>
+    </tr>
+    {% for user in users %}
+    <tr>
+        <td>{{ user.id }}</td>
+        <td>{{ user.username }}</td>
+        <td>{{ user.password }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+{% endblock content %}

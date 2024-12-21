@@ -1,0 +1,11 @@
+.user-data {
+	list-style-type: none;
+	padding: 0;
+	margin: -10px 15px 20px;
+	font-family: Arial, sans-serif;
+  }
+  
+  .user-data li {
+	margin-bottom: 10px;
+	font-size: 1.1em;
+  }

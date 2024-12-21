@@ -1,0 +1,229 @@
+{
+	"info": {
+		"_postman_id": "c6bd068f-875b-4e2b-a82b-2f49a2ccd7c2",
+		"name": "Docker8",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "34144493"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "get_user_all_user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verify status code 403\", function() {\r",
+									"    pm.response.to.have.status(403)\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{user}}/users/api"
+					},
+					"response": []
+				},
+				{
+					"name": "get_user_all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{admin}}/users/api"
+					},
+					"response": []
+				},
+				{
+					"name": "get_user_one",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{admin}}/users/api/1"
+					},
+					"response": []
+				},
+				{
+					"name": "create_user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"user2\",\r\n    \"password\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{admin}}/users/api"
+					},
+					"response": []
+				},
+				{
+					"name": "update_user",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"user3\",\r\n    \"password\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{admin}}/users/api/3"
+					},
+					"response": []
+				},
+				{
+					"name": "delete_user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verify status code 204\", function() {\r",
+									"    pm.response.to.have.status(204)\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{admin}}/users/api/3"
+					},
+					"response": []
+				},
+				{
+					"name": "get_user_no_auth",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verify status code 401\", function() {\r",
+									"    pm.response.to.have.status(401)\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{no-auth}}/users/api"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Material",
+			"item": [
+				{
+					"name": "get_mats_all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{user}}/shop/mat/api"
+					},
+					"response": []
+				},
+				{
+					"name": "get_mats_one",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{user}}/shop/mat/api/1"
+					},
+					"response": []
+				},
+				{
+					"name": "create_mat",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Кирпичи\",\r\n    \"description\": \"Указана цена за кубометр\",\r\n    \"cost\": \"7000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{user}}/shop/mat/api"
+					},
+					"response": []
+				},
+				{
+					"name": "update_mat",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Bricks\",\r\n    \"description\": \"Указана цена за кубометр\",\r\n    \"cost\": \"7000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{user}}/shop/mat/api/4"
+					},
+					"response": []
+				},
+				{
+					"name": "delete_mat",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{user}}/shop/mat/api/4"
+					},
+					"response": []
+				},
+				{
+					"name": "get_mat_no_uath",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verify status code 401\", function() {\r",
+									"    pm.response.to.have.status(401)\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{no-auth}}/shop/mat/api"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

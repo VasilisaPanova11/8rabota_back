@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extrastyles %}
+<link rel="stylesheet" href="{% static "css/tables.css" %}">
+{% endblock extrastyles %}
+
+{% block content %}
+<table class='data-table'>
+    <tr>
+        <th>График</th>
+    </tr>
+    {% for chart in charts %}
+    <tr>
+        <td> <img src="{{ chart.image.url }}"> </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock content %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extrastyles %}
+
+<link rel="stylesheet" href="{% static "css/tables.css" %}">
+
+{% endblock extrastyles %}
+
+{% block content %}
+
+<table class='data-table'>
+    <tr>
+        <th>ID</th>
+        <th>Название</th>
+        <th>Описание</th>
+        <th>Стоимость</th>
+    </tr>
+    <tr>
+        <td> {{ mat.pk }} </td>
+        <td> {{ mat.title }} </td>
+        <td> {{ mat.description }} </td>
+        <td> {{ mat.cost }} </td>
+    </tr>
+</table>
+
+{% endblock content %}

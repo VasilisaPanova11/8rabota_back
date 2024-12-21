@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extrastyles %}
+<link rel="stylesheet" href="{% static "css/tables.css" %}">
+{% endblock extrastyles %}
+
+{% block content %}
+<table class='data-table'>
+    <tr>
+        <th>ID</th>
+        <th>Название</th>
+        <th>Стоимость, за шт/м&sup3</th>
+        <th>Ссылка</th>
+    </tr>
+    {% for mat in mats %}
+    <tr>
+        <td> {{ mat.pk }} </td>
+        <td> {{ mat.title }} </td>
+        <td> {{ mat.cost }} </td>
+        <td> <a href="{{ mat.get_absolute_url }}">ссылка</a> </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock content %}

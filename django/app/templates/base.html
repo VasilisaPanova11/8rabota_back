@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon" />
+	<link rel="stylesheet" href='{% static "css/base.css" %}' />
+	{% block extrastyles %} {% endblock extrastyles %}
+	<title>{{ title }}</title>
+</head>
+
+<body>
+	<nav class="breadcrumbs">
+		<button onclick="window.location.replace('/')">На главную</button>
+		{% if back_url %}
+		<button onclick="window.location.replace('{% url back_url %}')">Назад</button>
+		{% endif %}
+	</nav>
+
+	<header>
+		<h1>{{ title }}</h1>
+	</header>
+
+	<div class="content">{% block content %} {% endblock content %}</div>
+</body>
+
+</html>

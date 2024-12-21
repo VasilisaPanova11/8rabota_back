@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+
+{% block content %}
+
+{% block extradata %}
+{% endblock extradata %}
+
+<form action="" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="next" value="{{ next }}" />
+    {% for f in form %}
+    <p>
+        {{ f.errors }}
+        <label for="{{f.id_for_label}}">{{f.label}}</label>
+        {{ f }}
+    </p>
+    {% endfor %} {{ form.non_field_errors }}
+    <button type="submit">{{ button_text }}</button>
+</form>
+{% endblock content %}

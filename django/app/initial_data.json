@@ -1,0 +1,29 @@
+[
+	{
+		"model": "shop.material",
+		"pk": 1,
+		"fields": {
+			"title": "Bricks",
+			"description": "The price for the material with a volume of one cubic meter is indicated",
+			"cost": 3500
+		}
+	},
+	{
+		"model": "shop.material",
+		"pk": 2,
+		"fields": {
+			"title": "Stameska",
+			"description": "The price for one piece is indicated",
+			"cost": 1000
+		}
+	},
+	{
+		"model": "shop.material",
+		"pk": 3,
+		"fields": {
+			"title": "Cement",
+			"description": "The price for the material with a volume of one cubic meter is indicated",
+			"cost": 3500
+		}
+	}
+]
